@@ -1,35 +1,45 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+  <h1>Hello!</h1>
+  <h1>Welcome to Jake's site.</h1>
+  <p>Send me a message</p>
+  <%= form_for @conn, Routes.page_path(@conn, :create), fn f -> %>
+    <label>
+      Message: <%= textarea f, :message %>
+    </label>
+
+    <%= submit "Submit" %>
+  <% end %>
 </section>
 
+<!--
 <section class="row">
   <article class="column">
-    <h2>Resources</h2>
+    <h2>For me</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+        <a href="https://hexdocs.pm/phoenix/overview.html">Blog</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+        <a href="https://github.com/phoenixframework/phoenix">Leadership</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">Technology</a>
       </li>
     </ul>
   </article>
   <article class="column">
-    <h2>Help</h2>
+    <h2>Professional</h2>
     <ul>
       <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+        <a href="https://elixirforum.com/c/phoenix-forum">Vail</a>
       </li>
       <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
+        <a href="https://webchat.freenode.net/?channels=elixir-lang">FreeClimb</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
+        <a href="https://twitter.com/elixirphoenix">Resume</a>
       </li>
     </ul>
   </article>
 </section>
+-->
