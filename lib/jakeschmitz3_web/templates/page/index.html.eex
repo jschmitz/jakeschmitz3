@@ -1,11 +1,13 @@
 
 <section class="phx-hero">
-  <h1>Hello!</h1>
-  <h1>Welcome to Jake's site.</h1>
+  <h1>Hi. I'm Jake.
+  <h2>Problem solver. Mentor. Developer.</h2>
+  <h3>About me...
+  <h4> With almost 20 years of software development experience in a range of roles from technology consulting to leading an in house development team that builds software solutions to scale, I learn and have fun every day.
   <p>Send me a message</p>
   <%= form_for @conn, Routes.page_path(@conn, :create), fn f -> %>
     <label>
-      Message: <%= textarea f, :message %>
+      <%= textarea f, :message %>
     </label>
 
     <%= submit "Submit" %>
