@@ -1,10 +1,12 @@
 
 <section class="phx-hero">
   <h1>Hi. I'm Jake.
-  <h2>Problem solver. Mentor. Developer.</h2>
-  <h3>About me...
-  <h4> With almost 20 years of software development experience in a range of roles from technology consulting to leading an in house development team that builds software solutions to scale, I learn and have fun every day.
-  <p>Send me a message</p>
+  <h3>Problem solver. Mentor. Developer.</h2>
+  <br>
+  <h1>About me...
+  <h3> With almost 20 years of software development experience in a range of roles from technology consulting to leading an in house development team that builds software solutions to scale, I learn and have fun every day.
+  <br>
+  <h2>Send me a message</h2>
   <%= form_for @conn, Routes.page_path(@conn, :create), fn f -> %>
     <label>
       <%= textarea f, :message %>
@@ -13,36 +15,3 @@
     <%= submit "Submit" %>
   <% end %>
 </section>
-
-<!--
-<section class="row">
-  <article class="column">
-    <h2>For me</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Blog</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Leadership</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">Technology</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Professional</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Vail</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">FreeClimb</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Resume</a>
-      </li>
-    </ul>
-  </article>
-</section>
--->

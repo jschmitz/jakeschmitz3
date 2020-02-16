@@ -13,6 +13,7 @@ defmodule Jakeschmitz3Web.PageController do
   end
 
   defp send_message(message) do
+    IO.puts("SENDING MESSAGE!!!!!")
     persy_account = System.get_env("PERSY_ACCOUNT")
     persy_token = System.get_env("PERSY_TOKEN")
     from_phone = System.get_env("FROM_PHONE")
