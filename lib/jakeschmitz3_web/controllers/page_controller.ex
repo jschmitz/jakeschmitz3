@@ -7,13 +7,25 @@ defmodule Jakeschmitz3Web.PageController do
 
   def create(conn, _params) do
     IO.puts(_params["message"])
-    send_message(_params["message"])
+    response = send_message(_params["message"])
+    IO.inspect(response)
 
-    render(conn, "index.html")
+    status_code = response[:status_code]
+
+    if status_code == "202" do
+      conn
+      |> put_flash(:info, "Thank you for the message!")
+      |> render("index.html")
+    else
+      conn
+      |> put_flash(:error, "There was an error sending your message")
+      |> render("index.html")
+    end
   end
 
   defp send_message(message) do
-    IO.puts("SENDING MESSAGE!!!!!")
+    IO.puts("SENDING MESSAGE - #{message}")
+
     persy_account = System.get_env("PERSY_ACCOUNT")
     persy_token = System.get_env("PERSY_TOKEN")
     from_phone = System.get_env("FROM_PHONE")
@@ -22,7 +34,7 @@ defmodule Jakeschmitz3Web.PageController do
     :inets.start()
     :ssl.start()
 
-    {:ok, {_status, _headers, body}} =
+    {:ok, {status, headers, body}} =
       :httpc.request(
         :post,
         {'https://www.freeclimb.com/apiserver/Accounts/#{persy_account}/Messages',
@@ -36,6 +48,8 @@ defmodule Jakeschmitz3Web.PageController do
       )
 
     %{
+      status_code: "#{elem(status, 1)}",
+      request_id: "#{elem(List.keyfind(headers, 'x-pulse-request-id', 0), 1)}",
       text: "#{body}"
     }
   end
