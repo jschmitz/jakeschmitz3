@@ -1,31 +1,36 @@
 defmodule Jakeschmitz3Web.PageController do
   use Jakeschmitz3Web, :controller
 
+  require Logger
+
   def index(conn, _params) do
     render(conn, "index.html")
   end
 
   def create(conn, _params) do
-    IO.puts(_params["message"])
     response = send_message(_params["message"])
-    IO.inspect(response)
-
     status_code = response[:status_code]
 
     if status_code == "202" do
+      Logger.info("The text message was sent successfully #{inspect(response)}")
+
       conn
       |> put_flash(:info, "Thank you for the message!")
       |> render("index.html")
     else
+      Logger.error(
+        "There was an error sending the text message using FreeClimb. FreeClimb response was #{
+          inspect(response)
+        }"
+      )
+
       conn
-      |> put_flash(:error, "There was an error sending your message")
+      |> put_flash(:error, "There was an error sending your message.")
       |> render("index.html")
     end
   end
 
   defp send_message(message) do
-    IO.puts("SENDING MESSAGE - #{message}")
-
     persy_account = System.get_env("PERSY_ACCOUNT")
     persy_token = System.get_env("PERSY_TOKEN")
     from_phone = System.get_env("FROM_PHONE")
@@ -49,8 +54,16 @@ defmodule Jakeschmitz3Web.PageController do
 
     %{
       status_code: "#{elem(status, 1)}",
-      request_id: "#{elem(List.keyfind(headers, 'x-pulse-request-id', 0), 1)}",
+      request_id: request_id(headers, "#{elem(status, 1)}"),
       text: "#{body}"
     }
+  end
+
+  defp request_id(headers, status_code) do
+    if status_code == "202" do
+      "#{elem(List.keyfind(headers, 'x-pulse-request-id', 0), 1)}"
+    else
+      ""
+    end
   end
 end
