@@ -13,22 +13,22 @@
         <nav role="navigation">
           <ul>
             <li>
-              <a href="https://github.com/jschmitz">
+              <a target="_blank" href="https://github.com/jschmitz">
                 <img src="<%= Routes.static_path(@conn, "/images/Octocat.png") %>" width="32" height="32" alt="Github Logo"/>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/jakeschmitz">
+              <a target="_blank" href="https://twitter.com/jakeschmitz">
                 <img src="<%= Routes.static_path(@conn, "/images/twitter.svg") %>" width="32" height="32" alt="Twitter Logo"/>
               </a>
             </li>
             <li>
-              <a href="https://www.goodreads.com/user/show/18015802-jake-schmitz">
+              <a target="_blank" href="https://www.goodreads.com/user/show/18015802-jake-schmitz">
                 <img src="<%= Routes.static_path(@conn, "/images/goodreads.png") %>" width="32" height="32" alt="Goodreads Logo"/>
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/jake-schmitz-745b3b1/">
+              <a target="_blank" href="https://www.linkedin.com/in/jake-schmitz-745b3b1/">
                 <img src="<%= Routes.static_path(@conn, "/images/linkedin.png") %>" width="32" height="32" alt="LinkedIn Logo"/>
               </a>
             </li>
