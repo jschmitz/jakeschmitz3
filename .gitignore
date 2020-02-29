@@ -35,3 +35,6 @@ npm-debug.log
 
 # Ignore not syncing to iCloud
 .nosync
+
+# Ignore dev config file
+config/dev.exs
