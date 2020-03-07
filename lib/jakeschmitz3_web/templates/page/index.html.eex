@@ -1,11 +1,11 @@
 
 <section class="phx-hero">
   <h1>Hi. I'm Jake.
-  <h3>Problem solver. Mentor. Developer.</h2>
-  <br>
+  <h2>Leader. Mentor. Developer</h2>
+  <br />
   <h1>About me...
-  <h3> With almost 20 years of software development experience in a range of roles from technology consulting to leading an in house development team that builds software solutions to scale, I learn and have fun every day.
-  <br>
+  <h3>With almost 20 years of software development experience in a range of roles from technology consulting to leading in house development teams that deliver high quality software solutions, I learn and have fun every day.
+  <br />
   <h2>Send me a message</h2>
   <%= form_for @conn, Routes.page_path(@conn, :create), fn f -> %>
     <label>
